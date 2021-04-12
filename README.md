@@ -36,6 +36,7 @@ This is the first version.I will make updates fast as I can
 * Go on the backend folder,type **npm install** and wait to install,installation finished type **npm start**
 * Open another terminal
 * Go on the Go on the front_end folder,type **npm install** and wait to install,installation finished type **npm start**
+* And Finally open Your Browser on http://localhost:3000
 
 # Next updates?
 > In the next update i will put an auth system using **jsonwebtoken**
