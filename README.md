@@ -30,6 +30,8 @@ This is the first version.I will make updates fast as I can
 * You need mongodb [mongodb](http://mongodb.com)
 
 ## How to initialize
+* Install **nodemon** globaly
+ * Open your terminal and type, **npm install nodemon -g**
 * Open your terminal 
 * Go on the backend folder,type **npm install** and wait to install,installation finished type **npm start**
 * Open another terminal
