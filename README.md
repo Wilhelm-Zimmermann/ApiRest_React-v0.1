@@ -3,7 +3,6 @@ This react app conects to a backend
 
 # What is this?
 This is a **facebook** clone,which you can post and coment
-This is the first version.I will make updates fast as I can
 
 ## Languages used
 
@@ -15,11 +14,13 @@ This is the first version.I will make updates fast as I can
 ## Dependencies
 
 * Backend
+  * NodeJS
   * Express
   * Connect-Multipaty
   * Body-parser
   * Mongodb
   * Mongoose
+  * Json Web Token
 * FrontEnd
   * ReactJs
   * Axios
@@ -31,12 +32,18 @@ This is the first version.I will make updates fast as I can
 
 ## How to initialize
 * Install **nodemon** globaly
-  * Open your terminal and type, **npm install nodemon -g**
+  * Open your terminal and type, `npm install nodemon -g`
 * Open your terminal 
-* Go on the backend folder,type **npm install** and wait to install,installation finished type **npm start**
+* Go on the backend folder,type `npm install` and wait to install,installation finished type `npm start`
 * Open another terminal
-* Go on the Go on the front_end folder,type **npm install** and wait to install,installation finished type **npm start**
+* Go on the Go on the front_end folder,type `npm install` and wait to install,installation finished type `npm start`
 * And Finally open Your Browser on http://localhost:3000
 
+# Updated 14/04/2021
+* Auth system included.Now you can create a user and login
+* You also can logout from the system
+* Some code refactories
+* Some Design improvements
+
 # Next updates?
-> In the next update i will put an auth system using **jsonwebtoken**
+> Working in new systems. **Stay tuned** 
