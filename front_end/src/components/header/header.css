@@ -6,6 +6,7 @@
 
 header{
     width:100%;
+    border-bottom:1px solid #ccc;
 }
 
 header h2{
@@ -31,4 +32,9 @@ header h2{
     display:flex;
     justify-content: space-between;
     align-items: center;
+}
+
+
+.logout{
+    cursor:pointer;
 }

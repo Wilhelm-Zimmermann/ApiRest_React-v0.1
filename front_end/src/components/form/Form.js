@@ -2,30 +2,34 @@ import React, { useState } from 'react'
 import './form.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faImages, faUpload } from '@fortawesome/free-solid-svg-icons'
-import axios from 'axios'
+import api from '../../services/api'
 
 export default function Form() {
     // create states to title and image
-    const [title, setTitle] = useState('')
-    const [img, setImg] = useState('')
-
-    
+    const [ formData , setFormData ] = useState({
+        title : '',
+        img : '',
+        error : ''
+    })
 
     const submit = async () => {
-        // url to post
-        const url = 'http://localhost:8080/posts'
-        // we put the elements into the form data 
-        // to send to the backend
-        const formData = new FormData()
+        const { title, img } = formData
+        // We put all in form data, because we have an image
+        const data = new FormData()
+        data.append('title',title)
+        data.append('file',img)
 
-        formData.append('title', title)
-        formData.append('file', img)
-
-        //creating a method post to the backend
-        await axios.post(url, formData)
-        .then(res => window.location.href = '/')
-        .catch(err => alert('There are fields empty'))
-        // when post as mode succesfully you will be redirected to '/'
+        if(!title || !img){
+            setFormData({ error : 'Dont let fieds emtpy'})
+        }else{
+            try{
+                // Here we send the method post to the backend
+                await api.post('/posts',data)
+                window.location.href = '/'
+            }catch(err){
+                setFormData({ error : 'There is a problem with posts'})
+            }
+        }
         
     }
 
@@ -51,7 +55,7 @@ return (
             <input type='text'
                 required
                 id='title'
-                onChange={e => setTitle( e.target.value )}
+                onChange={e => setFormData({...formData,title: e.target.value})}
                 placeholder='Title'
             />
         </div>
@@ -60,13 +64,14 @@ return (
                 <FontAwesomeIcon id='icon_img' icon={faImages} size='2x' />
                 <input type='file'
                     id='file'
-                    onChange={async (e) => {
-                        await setImg(e.target.files[0])
+                    onChange={ (e) => {
+                        setFormData({...formData,img: e.target.files[0]})
                         predictImage(e.target.files[0])
                     }
                     }
                 />
             </label></div>
+            {formData.error !== null ? <p>{formData.error}</p>: false}
         <div className='img_preview'>
             <img id='img' src='#' alt='your img'/>
         </div>

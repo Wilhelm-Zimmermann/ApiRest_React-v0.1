@@ -14,7 +14,7 @@ app.use('/uploads',express.static('uploads'))
 // set all response headers
 app.use((req,res,next) => {
     res.header('Access-Control-Allow-Origin','*')
-    res.header('Access-Allow-Control-Headers','Content-Type,Origin,X-Request-With,Accept,Authorization')
+    res.header('Access-Control-Allow-Headers','Content-Type,Origin,X-Request-With,Accept,Authorization')
     if(req.method === 'OPTIONS'){
 		res.header('Access-Control-Allow-Methods','POST,GET,PATCH,DELETE,PUT')
 		return res.status(200).send({ msg : 'ok'})	

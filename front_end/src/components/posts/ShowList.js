@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import List from './List'
 import WithListLoading from './withListLoading'
-import axios from 'axios'
+import api from '../../services/api'
+
 
 function Get(){
     const ListLoading = WithListLoading(List)
@@ -13,9 +14,8 @@ function Get(){
     useEffect(() => {
         // setting loading to true
         setAppState({ loading : true })
-        const url = 'http://localhost:8080/posts'
         // geting all posts on backend
-        axios.get(url)
+        api.get('/posts')
         .then(data => {
             const allPosts = data.data
             // when all is done loading is set to false

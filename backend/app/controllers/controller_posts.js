@@ -16,10 +16,6 @@ exports.addPosts = (req,res) => {
     const title = req.body.title
     const file = req.files.file
 
-    if(title == '' || file == undefined || title == undefined){
-        return res.status(411).send({ msg : 4})
-    }
-
     const imgName = new Date().getTime() +'_'+req.files.file.originalFilename
     
     const filePath = req.files.file.path
